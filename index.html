@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RURUU</title>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="image0.jpeg"
+                 alt="Main image" 
+                 class="main-image">
+
+        </div>
+        
+        <p class="description">
+            This is a mathematical calculator that performs division between two numbers. 
+            Enter two numbers in the fields below and click "Divide" to see the result.
+        </p>
+
+        <div class="input-section">
+            <div class="input-group">
+                <label for="input1">Number 1:</label>
+                <input type="number" id="input1" class="number-input" placeholder="0">
+            </div>
+            <div class="input-group">
+                <label for="input2">Number 2:</label>
+                <input type="number" id="input2" class="number-input" placeholder="0">
+            </div>
+        </div>
+
+        <button class="divide-button" onclick="performDivision()">Divide</button>
+        
+        <div id="result" class="result"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+    <link rel="stylesheet" href="style.css">
+     
+</body>
+</html>
