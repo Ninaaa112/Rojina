@@ -1,84 +1,231 @@
+/* Reset och grundläggande styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f5f5f5;
-}
-
-.container {
-    background-color: rgb(220, 215, 215);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    text-align: center;
-}
-
-.image-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    overflow: hidden;
+}
+
+/* Animerad bakgrund med stjärnor */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="15" cy="8" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="8" cy="15" r="0.8" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23stars)"/></svg>') repeat;
+    animation: twinkle 20s ease-in-out infinite;
+    z-index: -1;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Huvudcontainer med glassmorfism-effekt */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 450px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* Klubbhuvud styling */
+.club-header {
+    margin-bottom: 30px;
+}
+
+.club-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.club-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
     margin-bottom: 20px;
 }
 
-.main-image {
-    width: 400px;
-    height: 300px;
-    border: 3px solid red;
-    border-radius: 5px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
+.door-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #ffd700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.description {
-    font-size: 16px;
-    color: #333;
-    margin: 20px 0;
-    line-height: 1.5;
-}
-
-.input-section {
-    margin: 30px 0;
+/* Formulär styling */
+.entrance-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .input-group {
-    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
 }
 
-.input-group label {
-    display: inline-block;
-    width: 100px;
-    font-weight: bold;
+/* Labels */
+label {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.number-input {
-    padding: 8px;
-    border: 2px solid #ddd;
-    border-radius: 4px;
-    width: 100px;
-    text-align: center;
-    font-size: 16px;
-}
-
-.divide-button {
-    background-color: #007bff;
-    color: white;
+/* Number input styling */
+input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
     border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    border-radius: 5px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1.1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+input[type="number"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Checkbox styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: #ffd700;
     cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s;
 }
 
-.divide-button:hover {
-    background-color: #0056b3;
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 1.1rem;
 }
 
-.result {
-    margin-top: 20px;
-    font-size: 18px;
+.vip-badge {
+    background: linear-gradient(45deg, #ffd700, #ff6b6b);
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 0.8rem;
     font-weight: bold;
-    color: #333;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Knapp styling */
+#enterBtn {
+    background: linear-gradient(45deg, #ff6b6b, #ffd700);
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+#enterBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+    background: linear-gradient(45deg, #ff5252, #ffeb3b);
+}
+
+#enterBtn:active {
+    transform: translateY(0);
+}
+
+/* Anpassad alert styling */
+.alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    border: 2px solid #ffd700;
+    z-index: 1000;
+    display: none;
+    text-align: center;
+    max-width: 300px;
+}
+
+.alert.show {
+    display: block;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    20%, 80% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+}
+
+/* Responsiv design för mobila enheter */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .club-name {
+        font-size: 1.6rem;
+    }
+    
+    .club-subtitle {
+        font-size: 1rem;
+    }
 }
